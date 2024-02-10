@@ -4,8 +4,8 @@
 
 @property (nonatomic, strong, readonly) ListViewData *viewData;
 @property (nonatomic, strong, readonly) UIButton *backButton;
-@property (nonatomic, strong, readonly) UIScrollView *scrollView;
-@property (nonatomic, strong, readonly) UILabel *titleLabel;
+@property (nonatomic, readonly) UIScrollView *scrollView;
+@property (nonatomic, readonly) UILabel *titleLabel;
 
 @end
 
@@ -16,6 +16,7 @@
     _viewData = viewData;
     _backButton = [[UIButton alloc] init];
     _scrollView = [[UIScrollView alloc] init];
+    _titleLabel = [[UILabel alloc] init];
 
     return self;
 }
@@ -24,10 +25,12 @@
     [super viewDidLoad];
 
     self.scrollView.delegate = self;
-    self.view.backgroundColor = [UIColor redColor];
+    self.view.backgroundColor = [UIColor whiteColor];
 
+    // Customize button
     [self.view addSubview:self.backButton];
     [self.view addSubview:self.scrollView];
+    // Customize labels by creating another view for them
     [self.scrollView addSubview:self.titleLabel];
     
     [self constraintsForButton];
@@ -37,9 +40,21 @@
     [self setup];
 }
 
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    
+    self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, [self calculateHeight]);
+}
+
 - (void)setup {
+    self.titleLabel.text = self.viewData.titleText;
+    [self.backButton setTitle:@"Back" forState:UIControlStateNormal];
+    self.backButton.backgroundColor = [UIColor blueColor];
+    self.backButton.layer.cornerRadius = 10.0;
+
+    UILabel *descriptionLabel = nil;
     if (self.viewData.descriptionText) {
-        UILabel *descriptionLabel = [[UILabel alloc] init];
+        descriptionLabel = [[UILabel alloc] init];
         descriptionLabel.text = self.viewData.descriptionText;
         [self.scrollView addSubview:descriptionLabel];
         [self constraintsForDescriptionLabel:descriptionLabel];
@@ -49,7 +64,13 @@
     for (NSString *text in self.viewData.task) {
         UILabel *label = [[UILabel alloc] init];
         label.text = text;
-        [self addConstraintsForView:label WithListView:prevLabelView];
+
+        [self.scrollView addSubview:label];
+        prevLabelView
+        ? [self addConstraintsForView:label WithListView:prevLabelView]
+        : descriptionLabel
+        ? [self addConstraintsForView:label WithListView:descriptionLabel]
+        : [self addConstraintsForView:label WithListView:self.titleLabel];
         prevLabelView = label;
     }
 }
@@ -83,7 +104,7 @@
         [self.titleLabel.topAnchor constraintEqualToAnchor:self.scrollView.topAnchor constant:20],
         [self.titleLabel.leadingAnchor constraintEqualToAnchor:self.scrollView.leadingAnchor constant:20],
         [self.titleLabel.trailingAnchor constraintEqualToAnchor:self.scrollView.trailingAnchor constant:-20],
-        [self.titleLabel.heightAnchor constraintEqualToConstant:100]
+        [self.titleLabel.heightAnchor constraintEqualToConstant:40]
     ]];
 }
 
@@ -91,34 +112,31 @@
     descriptionLabel.translatesAutoresizingMaskIntoConstraints = false;
     
     [NSLayoutConstraint activateConstraints:@[
-        [descriptionLabel.topAnchor constraintEqualToAnchor:self.titleLabel.topAnchor constant:20],
+        [descriptionLabel.topAnchor constraintEqualToAnchor:self.titleLabel.bottomAnchor constant:20],
         [descriptionLabel.leadingAnchor constraintEqualToAnchor:self.scrollView.leadingAnchor constant:20],
         [descriptionLabel.trailingAnchor constraintEqualToAnchor:self.scrollView.trailingAnchor constant:-20],
-        [descriptionLabel.heightAnchor constraintEqualToConstant:75]
+        [descriptionLabel.heightAnchor constraintEqualToConstant:30]
     ]];
 }
 
 - (void)addConstraintsForView:(UILabel *)listView WithListView:(UILabel *)view {
     listView.translatesAutoresizingMaskIntoConstraints = false;
-    if (view) {
-        [NSLayoutConstraint activateConstraints:@[
-            [listView.topAnchor constraintEqualToAnchor:view.bottomAnchor constant:50],
-            [listView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor constant:20],
-            [listView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor constant:-20],
-            [listView.heightAnchor constraintEqualToConstant:300]
-        ]];
-    } else {
-        [NSLayoutConstraint activateConstraints:@[
-            [listView.topAnchor constraintEqualToAnchor:self.view.topAnchor constant:50],
-            [listView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor constant:20],
-            [listView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor constant:-20],
-            [listView.heightAnchor constraintEqualToConstant:300]
-        ]];
-    }
+    
+    [NSLayoutConstraint activateConstraints:@[
+        [listView.topAnchor constraintEqualToAnchor:view.bottomAnchor constant:10],
+        [listView.leadingAnchor constraintEqualToAnchor:self.scrollView.leadingAnchor constant:20],
+        [listView.trailingAnchor constraintEqualToAnchor:self.scrollView.trailingAnchor constant:-20],
+        [listView.heightAnchor constraintEqualToConstant:20]
+    ]];
 }
 
 - (void)addTarget:(nonnull id)target action:(nonnull SEL)action {
     [self.backButton addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (CGFloat)calculateHeight {
+    // Add logic to calculate height
+    return 1000.0f;
 }
 
 @end

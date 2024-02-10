@@ -4,6 +4,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// View Data for the default view
 @interface DefaultPageViewData : NSObject
 
 @property (nonatomic, strong, readonly) NSString *titleText;

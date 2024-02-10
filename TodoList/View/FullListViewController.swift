@@ -1,5 +1,6 @@
 import UIKit
 
+// Customize this view
 @objc
 class FullListViewController: UIViewController, UITextViewDelegate {
 
@@ -111,6 +112,6 @@ class FullListViewController: UIViewController, UITextViewDelegate {
 
         let list = listItemField.text.components(separatedBy: CharacterSet.newlines)
         let array = NSMutableArray(array: list)
-        return ListViewData(titleText: title, descriptionText: description, task: array , isFullListVisible: false)
+        return ListViewData(titleText: title, descriptionText: description, task: array , viewControllerType: .mainViewController)
     }
 }

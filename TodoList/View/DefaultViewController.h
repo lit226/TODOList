@@ -5,6 +5,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// Add an attractive gradient to the background and make the view more appealing
 @interface DefaultViewController : UIViewController
 
 - (instancetype)initWithListView:(ListView *)listView;

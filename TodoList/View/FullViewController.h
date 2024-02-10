@@ -7,6 +7,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithViewData:(ListViewData *)viewData;
 
+- (void)addTarget:(nonnull id)target action:(nonnull SEL)action;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -14,12 +14,13 @@
 }
 
 - (nonnull DefaultPageViewData *)getDefaultViewData {
-    ListViewData *listViewData = [[ListViewData alloc] initWithTitleText:@"This is a demo list" descriptionText:@"Here add the things that you want to do" task:nil isFullListVisible:false];
+    ListViewData *listViewData = [[ListViewData alloc] initWithTitleText:@"This is a demo list" descriptionText:@"Here add the things that you want to do" task:nil viewControllerType:presentingViewControllerTypeDefaultViewController];
     DefaultPageViewData *viewData = [[DefaultPageViewData alloc] initWithTitleText:@"TODO LIST" descriptionText:@"This is a todo list " buttonText:@"Create" viewData:listViewData];
 
     return viewData;
 }
 
+// Add logic to save data in persistence storage
 - (void)saveData:(nonnull ListViewData *)viewData {
     if (self.viewDatas.count == 0) {
         self.viewDatas = [[NSMutableArray alloc] init];

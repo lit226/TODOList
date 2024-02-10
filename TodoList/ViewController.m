@@ -16,6 +16,7 @@
 @property (nonatomic, strong) FullListViewController *fullListViewController;
 @property (nonatomic, strong) FullViewController *fullViewController;
 @property (nonatomic, strong) MainViewController *mainVC;
+@property (nonatomic, strong) ListViewData *viewData;
 
 @end
 
@@ -59,17 +60,33 @@
     [self.defaultViewController presentViewController:self.mainVC animated:true completion:nil];
 }
 
-- (void)viewTappedWithViewData:(ListViewData *)viewData {
+- (void)viewButtonTappedWithViewData:(ListViewData *)viewData {
+    self.viewData = viewData;
     self.fullViewController = [[FullViewController alloc] initWithViewData:viewData];
-    [self.mainVC presentViewController:self.fullViewController animated:true completion:nil];
+    self.fullViewController.modalPresentationStyle = UIModalPresentationFullScreen;
+    [self.fullViewController addTarget:self action:@selector(backButtonTapped)];
 
-    self.fullListViewController.modalPresentationStyle = UIModalPresentationFullScreen;
-    [self.fullListViewController addTargetWithTarget:self selector:@selector(backButtonTapped)];
+    switch (viewData.viewControllerType) {
+        case presentingViewControllerTypeDefaultViewController:
+            [self.defaultViewController presentViewController:self.fullViewController animated:true completion:nil];
+            break;
+            
+        case presentingViewControllerTypeMainViewController:
+            [self.mainVC presentViewController:self.fullViewController animated:true completion:nil];
+            break;
+    }
 }
 
 - (void)backButtonTapped {
-    [self.defaultViewController dismissViewControllerAnimated:true completion:nil];
-    [self.defaultViewController presentViewController:self.mainVC animated:true completion:nil];
+    switch (self.viewData.viewControllerType) {
+        case presentingViewControllerTypeDefaultViewController:
+            [self.defaultViewController dismissViewControllerAnimated:true completion:nil];
+            break;
+            
+        case presentingViewControllerTypeMainViewController:
+            [self.mainVC dismissViewControllerAnimated:true completion:nil];
+            break;
+    }
 }
 
 @end

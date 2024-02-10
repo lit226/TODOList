@@ -7,6 +7,8 @@
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UILabel *descriptionLabel;
 @property (nonatomic, strong) UIStackView *stackView;
+@property (nonatomic, strong) UIStackView *titleDescriptionButtonStackView;
+@property (nonatomic, strong) UIButton *showFullViewButton;
 @property (nonatomic, readonly) id<createButtonProtocol> delegate;
 
 @end
@@ -21,6 +23,8 @@
         _titleLabel = [[UILabel alloc] init];
         _descriptionLabel = [[UILabel alloc] init];
         _stackView = [[UIStackView alloc] init];
+        _titleDescriptionButtonStackView = [[UIStackView alloc] init];
+        _showFullViewButton = [[UIButton alloc] init];
     }
 
     [self configure];
@@ -28,49 +32,30 @@
 }
 
 - (void)configure {
-    [self addGestureRecognizerToview];
     [self addViewHeirarchy];
     [self setConstraints];
     [self stylizeView];
 }
 
-- (void)addGestureRecognizerToview {
-    UITapGestureRecognizer *singleFingerTap =
-      [[UITapGestureRecognizer alloc] initWithTarget:self
-                                              action:@selector(viewFullView)];
-    [self addGestureRecognizer:singleFingerTap];
-    self.userInteractionEnabled = true;
-//    [self.stackView addGestureRecognizer:singleFingerTap];
-//    [self.titleLabel addGestureRecognizer:singleFingerTap];
-//    [self.descriptionLabel addGestureRecognizer:singleFingerTap];
-    
-}
-
 - (void)addViewHeirarchy {
-    [self addSubview:self.stackView];
+    [self addSubview:self.titleDescriptionButtonStackView];
     [self.stackView addArrangedSubview:self.titleLabel];
     if (self.viewData.descriptionText) {
         [self.stackView addArrangedSubview:self.descriptionLabel];
     }
-    
-    if (self.viewData.isFullListVisible) {
-        for (NSString *textString in self.viewData.task) {
-            self.descriptionLabel.hidden = true;
-            UILabel *label = [[UILabel alloc] init];
-            label.text = textString;
-            [self.stackView addArrangedSubview:label];
-        }
-    }
+
+    [self.titleDescriptionButtonStackView addArrangedSubview:self.stackView];
+    [self.titleDescriptionButtonStackView addArrangedSubview:self.showFullViewButton];
 }
 
 - (void)setConstraints {
-    self.stackView.translatesAutoresizingMaskIntoConstraints = false;
+    self.titleDescriptionButtonStackView.translatesAutoresizingMaskIntoConstraints = false;
 
     [NSLayoutConstraint activateConstraints:@[
-        [self.stackView.topAnchor constraintEqualToAnchor:self.topAnchor],
-        [self.stackView.leadingAnchor constraintEqualToAnchor:self.leadingAnchor],
-        [self.stackView.trailingAnchor constraintEqualToAnchor:self.trailingAnchor],
-        [self.stackView.bottomAnchor constraintEqualToAnchor:self.bottomAnchor]
+        [self.titleDescriptionButtonStackView.topAnchor constraintEqualToAnchor:self.topAnchor],
+        [self.titleDescriptionButtonStackView.leadingAnchor constraintEqualToAnchor:self.leadingAnchor],
+        [self.titleDescriptionButtonStackView.trailingAnchor constraintEqualToAnchor:self.trailingAnchor],
+        [self.titleDescriptionButtonStackView.bottomAnchor constraintEqualToAnchor:self.bottomAnchor]
     ]];
 }
 
@@ -84,12 +69,18 @@
     self.stackView.axis = UILayoutConstraintAxisVertical;
     self.stackView.layoutMargins = UIEdgeInsetsMake(12, 12, 12, 12);
     self.stackView.layoutMarginsRelativeArrangement = true;
+    
+    self.titleDescriptionButtonStackView.axis = UILayoutConstraintAxisHorizontal;
+    
+    self.showFullViewButton.backgroundColor = [UIColor blueColor];
+    [self.showFullViewButton setTitle:@"Show" forState:UIControlStateNormal];
+    [self.showFullViewButton addTarget:self action:@selector(viewFullView) forControlEvents:UIControlEventTouchUpInside];
 
     self.backgroundColor = [UIColor whiteColor];
 }
 
 - (void)viewFullView {
-    [self.delegate viewTappedWithViewData:self.viewData];
+    [self.delegate viewButtonTappedWithViewData:self.viewData];
 }
 
 @end

@@ -5,6 +5,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// Needs to customize this view
 @interface MainViewController : UIViewController <UIScrollViewDelegate>
 
 - (instancetype)initDelegate:(id<createButtonProtocol>)delegate;

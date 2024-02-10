@@ -1,7 +1,8 @@
 #import "ListViewData.h"
 
+// Protocol to check the button if tapped or not
 @protocol createButtonProtocol
 
-- (void)viewTappedWithViewData:(ListViewData *)viewData;
+- (void)viewButtonTappedWithViewData:(ListViewData *)viewData;
 
 @end
