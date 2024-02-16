@@ -8,12 +8,12 @@
 #import "ListViewManager.h"
 #import "FullViewController.h"
 
-@class FullListViewController;
+@class DetailsViewController;
 
 @interface ViewController ()
 
 @property (nonatomic, strong) DefaultViewController *defaultViewController;
-@property (nonatomic, strong) FullListViewController *fullListViewController;
+@property (nonatomic, strong) DetailsViewController *detailsViewController;
 @property (nonatomic, strong) FullViewController *fullViewController;
 @property (nonatomic, strong) MainViewController *mainVC;
 @property (nonatomic, strong) ListViewData *viewData;
@@ -43,15 +43,15 @@
 }
 
 - (void)createButtonTapped {
-    self.fullListViewController = [[FullListViewController alloc] init];
+    self.detailsViewController = [[DetailsViewController alloc] init];
 
-    self.fullListViewController.modalPresentationStyle = UIModalPresentationFullScreen;
-    [self.defaultViewController presentViewController:self.fullListViewController animated:true completion:nil];
-    [self.fullListViewController addTargetWithTarget:self selector:@selector(addButtonTapped)];
+    self.detailsViewController.modalPresentationStyle = UIModalPresentationFullScreen;
+    [self.defaultViewController presentViewController:self.detailsViewController animated:true completion:nil];
+    [self.detailsViewController addTargetWithTarget:self selector:@selector(addButtonTapped)];
 }
 
 - (void)addButtonTapped {
-    ListViewData *listViewdata = [self.fullListViewController getViewData];
+    ListViewData *listViewdata = [self.detailsViewController getViewData];
     [[ListViewManager shared] saveData:listViewdata];
     [self.defaultViewController dismissViewControllerAnimated:true completion:nil];
 

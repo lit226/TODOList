@@ -2,7 +2,7 @@ import UIKit
 
 // Customize this view
 @objc
-class FullListViewController: UIViewController, UITextViewDelegate {
+class DetailsViewController: UIViewController, UITextViewDelegate {
 
     lazy var titleField: UITextField = {
         let field = UITextField()

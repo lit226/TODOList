@@ -23,7 +23,7 @@
 		DAC680382B775C9F00B03FFF /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAC680372B775C9F00B03FFF /* Launch Screen.storyboard */; };
 		DACCB3BB2B44844F00B10158 /* DefaultPageViewData.m in Sources */ = {isa = PBXBuildFile; fileRef = DACCB3BA2B44844F00B10158 /* DefaultPageViewData.m */; };
 		DACCB3BE2B4486CD00B10158 /* ListViewData.m in Sources */ = {isa = PBXBuildFile; fileRef = DACCB3BD2B4486CD00B10158 /* ListViewData.m */; };
-		DAE99F522B4DBEF9009F9CB6 /* FullListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE99F512B4DBEF9009F9CB6 /* FullListViewController.swift */; };
+		DAE99F522B4DBEF9009F9CB6 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE99F512B4DBEF9009F9CB6 /* DetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,7 +57,7 @@
 		DACCB3BA2B44844F00B10158 /* DefaultPageViewData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DefaultPageViewData.m; sourceTree = "<group>"; };
 		DACCB3BC2B4486CD00B10158 /* ListViewData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListViewData.h; sourceTree = "<group>"; };
 		DACCB3BD2B4486CD00B10158 /* ListViewData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListViewData.m; sourceTree = "<group>"; };
-		DAE99F512B4DBEF9009F9CB6 /* FullListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullListViewController.swift; sourceTree = "<group>"; };
+		DAE99F512B4DBEF9009F9CB6 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,7 +135,7 @@
 				DAC55E902B432E9200B3A5AF /* DefaultViewController.m */,
 				DAC55E922B43357C00B3A5AF /* ListView.h */,
 				DAC55E932B43357C00B3A5AF /* ListView.m */,
-				DAE99F512B4DBEF9009F9CB6 /* FullListViewController.swift */,
+				DAE99F512B4DBEF9009F9CB6 /* DetailsViewController.swift */,
 				DA38ACF52B654D6C00EA4FFC /* TodoList-Bridging-Header.h */,
 				DA38ACF92B696FAE00EA4FFC /* MainViewController.h */,
 				DA38ACFA2B696FAE00EA4FFC /* MainViewController.m */,
@@ -237,7 +237,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA331D3E2B4293C400F68EF3 /* main.m in Sources */,
-				DAE99F522B4DBEF9009F9CB6 /* FullListViewController.swift in Sources */,
+				DAE99F522B4DBEF9009F9CB6 /* DetailsViewController.swift in Sources */,
 				DA331D302B4293C300F68EF3 /* ViewController.m in Sources */,
 				DA331D2A2B4293C300F68EF3 /* AppDelegate.m in Sources */,
 				DA331D2D2B4293C300F68EF3 /* SceneDelegate.m in Sources */,
