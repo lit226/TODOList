@@ -25,7 +25,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor redColor];
     
     self.scrollView.delegate = self;
     [self.view addSubview:self.scrollView];

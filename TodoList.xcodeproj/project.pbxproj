@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA2C07962B80B4E5007F8F9E /* ListDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DAC680952B7FDF4D00B03FFF /* ListDataModel.xcdatamodeld */; };
 		DA331D2A2B4293C300F68EF3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA331D292B4293C300F68EF3 /* AppDelegate.m */; };
 		DA331D2D2B4293C300F68EF3 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA331D2C2B4293C300F68EF3 /* SceneDelegate.m */; };
 		DA331D302B4293C300F68EF3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA331D2F2B4293C300F68EF3 /* ViewController.m */; };
 		DA331D332B4293C300F68EF3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA331D312B4293C300F68EF3 /* Main.storyboard */; };
-		DA331D362B4293C300F68EF3 /* TodoList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA331D342B4293C300F68EF3 /* TodoList.xcdatamodeld */; };
 		DA331D382B4293C400F68EF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA331D372B4293C400F68EF3 /* Assets.xcassets */; };
 		DA331D3B2B4293C400F68EF3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA331D392B4293C400F68EF3 /* LaunchScreen.storyboard */; };
 		DA331D3E2B4293C400F68EF3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DA331D3D2B4293C400F68EF3 /* main.m */; };
@@ -21,6 +21,8 @@
 		DAC55E912B432E9200B3A5AF /* DefaultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC55E902B432E9200B3A5AF /* DefaultViewController.m */; };
 		DAC55E942B43357C00B3A5AF /* ListView.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC55E932B43357C00B3A5AF /* ListView.m */; };
 		DAC680382B775C9F00B03FFF /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAC680372B775C9F00B03FFF /* Launch Screen.storyboard */; };
+		DAC6809B2B7FE45600B03FFF /* DataPersistenceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC6809A2B7FE45600B03FFF /* DataPersistenceManager.m */; };
+		DAC6809E2B80952D00B03FFF /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAC6809D2B80952D00B03FFF /* CoreData.framework */; };
 		DACCB3BB2B44844F00B10158 /* DefaultPageViewData.m in Sources */ = {isa = PBXBuildFile; fileRef = DACCB3BA2B44844F00B10158 /* DefaultPageViewData.m */; };
 		DACCB3BE2B4486CD00B10158 /* ListViewData.m in Sources */ = {isa = PBXBuildFile; fileRef = DACCB3BD2B4486CD00B10158 /* ListViewData.m */; };
 		DAE99F522B4DBEF9009F9CB6 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE99F512B4DBEF9009F9CB6 /* DetailsViewController.swift */; };
@@ -35,7 +37,6 @@
 		DA331D2E2B4293C300F68EF3 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		DA331D2F2B4293C300F68EF3 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		DA331D322B4293C300F68EF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		DA331D352B4293C300F68EF3 /* TodoList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TodoList.xcdatamodel; sourceTree = "<group>"; };
 		DA331D372B4293C400F68EF3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA331D3A2B4293C400F68EF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA331D3C2B4293C400F68EF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -53,6 +54,10 @@
 		DAC55E922B43357C00B3A5AF /* ListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListView.h; sourceTree = "<group>"; };
 		DAC55E932B43357C00B3A5AF /* ListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListView.m; sourceTree = "<group>"; };
 		DAC680372B775C9F00B03FFF /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		DAC680962B7FDF4D00B03FFF /* ListDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ListDataModel.xcdatamodel; sourceTree = "<group>"; };
+		DAC680992B7FE45600B03FFF /* DataPersistenceManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataPersistenceManager.h; sourceTree = "<group>"; };
+		DAC6809A2B7FE45600B03FFF /* DataPersistenceManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataPersistenceManager.m; sourceTree = "<group>"; };
+		DAC6809D2B80952D00B03FFF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		DACCB3B92B44844F00B10158 /* DefaultPageViewData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DefaultPageViewData.h; sourceTree = "<group>"; };
 		DACCB3BA2B44844F00B10158 /* DefaultPageViewData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DefaultPageViewData.m; sourceTree = "<group>"; };
 		DACCB3BC2B4486CD00B10158 /* ListViewData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListViewData.h; sourceTree = "<group>"; };
@@ -65,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAC6809E2B80952D00B03FFF /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +82,7 @@
 			children = (
 				DA331D272B4293C300F68EF3 /* TodoList */,
 				DA331D262B4293C300F68EF3 /* Products */,
+				DAC6809C2B80952D00B03FFF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -90,6 +97,7 @@
 		DA331D272B4293C300F68EF3 /* TodoList */ = {
 			isa = PBXGroup;
 			children = (
+				DAC680982B7FE42400B03FFF /* Manager */,
 				DAC680362B775C9100B03FFF /* Resource */,
 				DA38ACF62B696A4200EA4FFC /* Protocols */,
 				DAC55E8D2B430B8600B3A5AF /* Model */,
@@ -106,7 +114,7 @@
 				DA331D392B4293C400F68EF3 /* LaunchScreen.storyboard */,
 				DA331D3C2B4293C400F68EF3 /* Info.plist */,
 				DA331D3D2B4293C400F68EF3 /* main.m */,
-				DA331D342B4293C300F68EF3 /* TodoList.xcdatamodeld */,
+				DAC680952B7FDF4D00B03FFF /* ListDataModel.xcdatamodeld */,
 			);
 			path = TodoList;
 			sourceTree = "<group>";
@@ -162,6 +170,23 @@
 				DAC680372B775C9F00B03FFF /* Launch Screen.storyboard */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		DAC680982B7FE42400B03FFF /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				DAC680992B7FE45600B03FFF /* DataPersistenceManager.h */,
+				DAC6809A2B7FE45600B03FFF /* DataPersistenceManager.m */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		DAC6809C2B80952D00B03FFF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DAC6809D2B80952D00B03FFF /* CoreData.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,9 +271,10 @@
 				DA38ACFB2B696FAE00EA4FFC /* MainViewController.m in Sources */,
 				DA38AD022B6E6CB400EA4FFC /* FullViewController.m in Sources */,
 				DAC55E912B432E9200B3A5AF /* DefaultViewController.m in Sources */,
-				DA331D362B4293C300F68EF3 /* TodoList.xcdatamodeld in Sources */,
 				DAC55E942B43357C00B3A5AF /* ListView.m in Sources */,
 				DACCB3BB2B44844F00B10158 /* DefaultPageViewData.m in Sources */,
+				DAC6809B2B7FE45600B03FFF /* DataPersistenceManager.m in Sources */,
+				DA2C07962B80B4E5007F8F9E /* ListDataModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,13 +499,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		DA331D342B4293C300F68EF3 /* TodoList.xcdatamodeld */ = {
+		DAC680952B7FDF4D00B03FFF /* ListDataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				DA331D352B4293C300F68EF3 /* TodoList.xcdatamodel */,
+				DAC680962B7FDF4D00B03FFF /* ListDataModel.xcdatamodel */,
 			);
-			currentVersion = DA331D352B4293C300F68EF3 /* TodoList.xcdatamodel */;
-			path = TodoList.xcdatamodeld;
+			currentVersion = DAC680962B7FDF4D00B03FFF /* ListDataModel.xcdatamodel */;
+			path = ListDataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22225" systemVersion="22G74" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="ListViewDatas" representedClassName="ListViewDatas" isAbstract="YES" syncable="YES" codeGenerationType="category">
+        <attribute name="viewData" optional="YES" attributeType="Transformable" customClassName="ListViewData"/>
+    </entity>
+</model>

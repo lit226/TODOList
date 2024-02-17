@@ -1,5 +1,6 @@
 #import "ListViewManager.h"
 
+#import "DataPersistenceManager.h"
 #import "DefaultPageViewData.h"
 
 @implementation ListViewManager
@@ -22,15 +23,16 @@
 
 // Add logic to save data in persistence storage
 - (void)saveData:(nonnull ListViewData *)viewData {
-    if (self.viewDatas.count == 0) {
-        self.viewDatas = [[NSMutableArray alloc] init];
-    }
-
-    [self.viewDatas addObject:viewData];
+//    if (self.viewDatas.count == 0) {
+//        self.viewDatas = [[NSMutableArray alloc] init];
+//    }
+//
+//    [self.viewDatas addObject:viewData];
+    [[DataPersistenceManager shared] saveDataWithViewData:viewData];
 }
 
 - (nonnull NSMutableArray<ListViewData *> *)getViewDatas {
-    return self.viewDatas;
+    return [[DataPersistenceManager shared] fetchData];
 }
 
 @end
